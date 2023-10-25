@@ -21,6 +21,9 @@ router.get('/edit-product/:productId', adminController.getEditProduct);
 /* This will not receive any dynamic segment because it is a post req,
 * so data can be enclosed in the req we're sending
  */
-router.post('/edit-product', adminController.postEditProduct)
+router.post('/edit-product', adminController.postEditProduct);
+
+// /admin/delete-product => POST
+router.post('/delete-product', adminController.postDeleteProduct);
 
 module.exports = router;
