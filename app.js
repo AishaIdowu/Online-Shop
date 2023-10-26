@@ -13,13 +13,7 @@ app.use(express.static('public'));
 app.use('/', require('./routes/shop'))
 app.use('/admin', require('./routes/admin'));
 
-db.execute('SELECT * FROM products')
-.then(result => {
-    console.log(result)
-})
-.catch(err => {
-    console.log(err)
-})
+
 app.use(errorController.get404);
 
 const PORT = process.env.PORT || 3000;
