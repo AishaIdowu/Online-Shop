@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const app = express();
+const db = require('./util/database');
 const errorController = require('./controllers/error')
 
 
@@ -12,6 +12,8 @@ app.use(express.static('public'));
 
 app.use('/', require('./routes/shop'))
 app.use('/admin', require('./routes/admin'));
+
+db.execute('SELECT * FROM products')
 app.use(errorController.get404);
 
 const PORT = process.env.PORT || 3000;
